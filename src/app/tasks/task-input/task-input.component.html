@@ -1,3 +1,7 @@
-<md-input-container>
-  <input mdInput value="">
-</md-input-container>
+<md-card>
+  <form (ngSubmit)="onAddTask(f)" #f="ngForm">
+    <md-input-container>
+      <input mdInput ngModel name="title">
+    </md-input-container>
+  </form>
+</md-card>

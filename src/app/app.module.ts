@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskItemComponent } from './tasks/task-item/task-item.component';
 import { TaskInputComponent } from './tasks/task-input/task-input.component';
+import { TasksService } from './tasks/tasks.service';
 
 
 @NgModule({
@@ -39,9 +40,10 @@ import { TaskInputComponent } from './tasks/task-input/task-input.component';
     MdIconModule,
     MdCardModule,
     MdCheckboxModule,
-    MdInputModule
+    MdInputModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,1 @@
-<p>
-  tasks works!
-</p>
+<app-task-item *ngFor="let aTask of tasks; let i = index" [index]="i" [task]="aTask"></app-task-item>
