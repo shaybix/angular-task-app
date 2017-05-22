@@ -38,12 +38,20 @@ export class TasksComponent implements OnInit, OnDestroy {
         return this.tasks.splice(index, 1);
       }
     )
+
+    this.tasksService.tasksEdited.subscribe(
+      (response: {index: number, task: {id: number, title: string, completed: boolean}}) => {
+        return this.tasks.splice(response.index, 1, response.task);
+      }
+    )
+
   }
 
   ngOnDestroy() {
     this.tasksService.tasksAdded.unsubscribe();
     this.tasksService.taskCompleted.unsubscribe();
     this.tasksService.taskDeleted.unsubscribe();
+    this.tasksService.tasksEdited.unsubscribe();
 
   }
 

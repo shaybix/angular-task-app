@@ -19,6 +19,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskItemComponent } from './tasks/task-item/task-item.component';
 import { TaskInputComponent } from './tasks/task-input/task-input.component';
 import { TasksService } from './tasks/tasks.service';
+import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TasksService } from './tasks/tasks.service';
     HeaderComponent,
     TasksComponent,
     TaskItemComponent,
-    TaskInputComponent
+    TaskInputComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+import { Task } from '../task.model';
 import { TasksService } from '../tasks.service';
+
 
 @Component({
   selector: 'app-task-item',
@@ -7,9 +10,9 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./task-item.component.css']
 })
 export class TaskItemComponent implements OnInit {
- @Input() task: {id: number, title: string, completed: boolean};
+ @Input() task: Task;
  @Input() index: number;
-//  @Input() task;
+ hideEdit: boolean = true;
 
   constructor(private tasksService: TasksService) { }
 
@@ -23,7 +26,20 @@ export class TaskItemComponent implements OnInit {
     this.tasksService.taskCompleted.next({"index": this.index, "task": task});
   }
 
-  onDelete() {
+  onShowEdit() {
+    this.hideEdit = false;
+  }
+
+  onTaskEdited(editedTask: Task) {
+    this.tasksService.tasksEdited.next({"index": this.index, "task": editedTask})
+    this.hideEdit = true;
+  }
+
+  onCancelEdit() {
+    this.hideEdit = true;
+  }
+
+  onDeleteTask() {
     console.log("delete "+ this.index)
     this.tasksService.taskDeleted.next(this.index);
   }

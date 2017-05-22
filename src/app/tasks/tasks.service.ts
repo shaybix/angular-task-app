@@ -4,4 +4,5 @@ export class TasksService {
     tasksAdded = new Subject();
     taskCompleted = new Subject();
     taskDeleted = new Subject();
+    tasksEdited = new Subject();
 }

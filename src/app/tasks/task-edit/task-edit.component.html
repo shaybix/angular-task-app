@@ -1,0 +1,7 @@
+<h3>Edit Task</h3>
+<form (ngSubmit)="onEditTask()">
+  <md-input-container>
+    <input mdInput [(ngModel)]="task.title" name="title"/>
+  </md-input-container>
+</form>
+<button md-button (click)="onEditTaskCancelled()">Cancel</button>

@@ -1,3 +1,7 @@
-.filler {
+/*.filler {
     flex: 1 1 auto;
+}*/
+
+md-card {
+    justify-content: space-between;
 }
