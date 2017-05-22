@@ -27,7 +27,6 @@ export class TaskInputComponent implements OnInit {
     this.tasksService.tasksAdded.next(task);
     form.reset();
 
-    console.log(form.value.title);
 
   }
 

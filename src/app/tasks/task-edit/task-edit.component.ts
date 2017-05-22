@@ -17,13 +17,11 @@ export class TaskEditComponent implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    console.log(this.task);
   }
 
   onEditTask() {
     let task = this.task;
     this.taskEdited.emit(task);
-    console.log(task);
   }
 
   onEditTaskCancelled() {

@@ -18,7 +18,6 @@ export class TasksComponent implements OnInit, OnDestroy {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    console.log(this.tasks);
     this.tasksService.tasksAdded.subscribe(
       (task: {id: number, title: string, completed: boolean}) => {
        this.tasks.push(task); 
@@ -27,7 +26,6 @@ export class TasksComponent implements OnInit, OnDestroy {
 
     this.tasksService.taskCompleted.subscribe(
       (response: {index: number, task: {id: number, title: string, completed: boolean}}) => {
-        console.log(response.task);
         return this.tasks.splice(response.index, 1, response.task)
 
       }

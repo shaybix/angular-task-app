@@ -40,7 +40,6 @@ export class TaskItemComponent implements OnInit {
   }
 
   onDeleteTask() {
-    console.log("delete "+ this.index)
     this.tasksService.taskDeleted.next(this.index);
   }
 
