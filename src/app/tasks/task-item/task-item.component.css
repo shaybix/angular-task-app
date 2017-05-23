@@ -2,6 +2,19 @@
     flex: 1 1 auto;
 }*/
 
-md-card {
-    justify-content: space-between;
+
+md-icon {
+    cursor: pointer;
+}
+
+
+/deep/ md-card .md-grid-tile-buttons .mat-figure {
+    display: flex;
+    justify-content: flex-end !important;
+}
+
+
+/deep/ md-card .md-grid-tile-task .mat-figure {
+    display: flex;
+    justify-content: flex-start !important;
 }
