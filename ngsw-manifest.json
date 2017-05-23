@@ -2,14 +2,14 @@
   "static": {
     "urls": {
       "https://shaybix.github.io/angular-task-app/polyfills.d6ace064705e27ed776a.bundle.js": "5620e02c5443a4ca0313d99a8a9cf18fdc781087",
-      "https://shaybix.github.io/angular-task-app/main.f5a971a8cddd556fddb3.bundle.js": "a20e5717e8ebb978eb34dbfacd3ac91375182ee4",
+      "https://shaybix.github.io/angular-task-app/main.565f78d4e4be410a0af3.bundle.js": "944f9139676aa14caf15a4cb6211b237dda909a4",
       "https://shaybix.github.io/angular-task-app/sw-register.b73048fe3d9f8a1e7ae5.bundle.js": "a98270c864fc34e37b1d992bfe5994323558c2f8",
-      "https://shaybix.github.io/angular-task-app/vendor.6a3ba5ec5dc7b7b08f30.bundle.js": "3fceb1c5340f7d88a39f4867bfdcf9c9a59e4e57",
-      "https://shaybix.github.io/angular-task-app/inline.1cd6df66b5aa6e118aa6.bundle.js": "a962c65e8c76eee1b17cf4a80cb8fa8e8267c8df",
+      "https://shaybix.github.io/angular-task-app/vendor.0fdc57a9eaa8ce2d3452.bundle.js": "c9863aac0770e9b1f526a8acba265a9711886273",
+      "https://shaybix.github.io/angular-task-app/inline.c8fdb9bc0a8a3d758f50.bundle.js": "e4e564eee502cfdef8f60cffee40c45aa49ff0db",
       "https://shaybix.github.io/angular-task-app/styles.ef9a26d4778a811fba16.bundle.css": "941e975e2f0c2d08d1803d5f8e6297f6800706ec",
       "https://shaybix.github.io/angular-task-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
       "https://shaybix.github.io/angular-task-app/manifest.json": "30cf267fbf3a812d5b251be641fdf64409c45b48",
-      "https://shaybix.github.io/angular-task-app/index.html": "42d47d2865b5af8aaa0d425d65eb638c3586f2f9"
+      "https://shaybix.github.io/angular-task-app/index.html": "53d9e5af9bca1e2a67ef4e5f4f9f87a6f196b7ea"
     },
     "_generatedFromWebpack": true
   }
