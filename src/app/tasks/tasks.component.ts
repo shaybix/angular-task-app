@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { TasksService } from './tasks.service';
+import { Task } from './task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -7,17 +8,27 @@ import { TasksService } from './tasks.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit, OnDestroy {
-  tasks: {id: number, title: string, completed: boolean}[] = [
-    {"id": 1, "title": "I need to buy shoes", "completed": false },
-    {"id": 2, "title": "Buy groceries", "completed": false },
-    {"id": 3, "title": "Help kids with the homework", "completed": false },
-    {"id": 4, "title": "Finish php project!", "completed": false }
+  // tasks: {id: number, title: string, completed: boolean}[] = [
+  //   {"id": 1, "title": "I need to buy shoes", "completed": false },
+  //   {"id": 2, "title": "Buy groceries", "completed": false },
+  //   {"id": 3, "title": "Help kids with the homework", "completed": false },
+  //   {"id": 4, "title": "Finish php project!", "completed": false }
+  // ];
 
-  ];
+  tasks: Task[];
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
+
+    this.tasksService.loadTasks().subscribe(
+      (tasks: Task[]) => {
+        this.tasks = tasks;
+      }
+
+    )
+
+
     this.tasksService.tasksAdded.subscribe(
       (task: {id: number, title: string, completed: boolean}) => {
        this.tasks.push(task); 

@@ -30,7 +30,7 @@ import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
     TasksComponent,
     TaskItemComponent,
     TaskInputComponent,
-    TaskEditComponent
+    TaskEditComponent,
   ],
   imports: [
     BrowserModule,
