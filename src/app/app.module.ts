@@ -11,7 +11,10 @@ import {
   MdCardModule,
   MdCheckboxModule,
   MdInputModule,
-  MdGridListModule
+  MdGridListModule,
+  MdSnackBarModule,
+  MdDatepickerModule,
+  MdNativeDateModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -45,7 +48,10 @@ import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
     MdCheckboxModule,
     MdInputModule,
     FormsModule,
-    MdGridListModule
+    MdGridListModule,
+    MdSnackBarModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   providers: [TasksService],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
+
+import { Task } from '../task.model';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -9,10 +11,11 @@ import { TasksService } from '../tasks.service';
 })
 export class TaskInputComponent implements OnInit {
 
-  task: {id: number, title: string, completed: boolean} = {
+  task: Task = {
     "id": null,
     "title": "",
-    "completed": false
+    "completed": false,
+    "due": new Date  
   };
 
   constructor(private tasksService: TasksService) { }
@@ -24,6 +27,10 @@ export class TaskInputComponent implements OnInit {
   onAddTask(form: NgForm){
     let task  = this.task;
     task.title = form.value.title;
+    task.due = form.value.date;
+    
+    console.log(form.value.date)
+
     this.tasksService.createTask(task);
     form.reset();
 

@@ -1,14 +1,16 @@
-<md-card>
-  <md-grid-list cols="2" rowHeight="30px">
-    <md-grid-tile class="md-grid-tile-task">
+<md-card flex>
+  <div class="task-info">
+    <span class="input-title">
       <md-checkbox #checkbox (click)="onChecked(checkbox)" [checked]="(!!task.completed)">{{ task.title }}</md-checkbox>
-    </md-grid-tile>
-    <md-grid-tile class="md-grid-tile-buttons">
+    </span>
+
+    <span class="tools-icons">
       <md-icon (click)="onShowEdit()">edit</md-icon>
       <md-icon (click)="onDeleteTask()">delete</md-icon>
-    </md-grid-tile>
-  </md-grid-list>
-  <div *ngIf="!hideEdit">
+    </span>
+  </div>
+
+  <div *ngIf="!hideEdit" class="task-edit">
     <hr>
     <app-task-edit [task]="task" (taskEdited)="onTaskEdited($event)" (editCancelled)="onCancelEdit()"></app-task-edit>
   </div>

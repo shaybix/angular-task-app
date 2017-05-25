@@ -1,7 +1,13 @@
 <md-card>
-  <form (ngSubmit)="onAddTask(f)" #f="ngForm">
+  <form #f="ngForm">
     <md-input-container>
       <input mdInput ngModel name="title" placeholder="Task Title">
     </md-input-container>
+    <md-input-container>
+      <input mdInput ngModel [mdDatepicker]="myDatepicker" name="date" placeholder="To be completed on">
+      <button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>
+    </md-input-container>
+    <md-datepicker #myDatepicker></md-datepicker>
+    <button md-button color="primary" type="submit" (click)="onAddTask(f)">Create Task</button>
   </form>
 </md-card>

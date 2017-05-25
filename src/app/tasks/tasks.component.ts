@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
+import { MdSnackBar } from '@angular/material';
+ 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
 
@@ -8,49 +10,42 @@ import { Task } from './task.model';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit, OnDestroy {
-  // tasks: {id: number, title: string, completed: boolean}[] = [
-  //   {"id": 1, "title": "I need to buy shoes", "completed": false },
-  //   {"id": 2, "title": "Buy groceries", "completed": false },
-  //   {"id": 3, "title": "Help kids with the homework", "completed": false },
-  //   {"id": 4, "title": "Finish php project!", "completed": false }
-  // ];
 
   tasks: Task[];
 
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService, public snackbar: MdSnackBar) { }
 
   ngOnInit() {
 
     this.tasksService.loadTasks().subscribe(
       (tasks: Task[]) => {
         this.tasks = tasks;
-      }
-
-    )
+      })
 
     this.tasksService.taskAdded.subscribe(
-      (task: {id: number, title: string, completed: boolean}) => {
+      (task: Task) => {
        this.tasks.push(task); 
-      }
-    )
+      })
 
     this.tasksService.taskCompleted.subscribe(
       (response: {index: number, task: Task}) => {
-        console.log('triggered taskCompleted subscription!')
         this.tasks.splice(response.index, 1, response.task)
       },
       (error) => {console.log(error)},
-      () => {console.log('completed!')}
-    )
+      () => {
+        console.log('completed!')
+      })
 
     this.tasksService.taskDeleted.subscribe(
       (index: number) => {
+        let task = this.tasks[index]
         this.tasks.splice(index, 1);
+        this.snackbar.open(`task: ${task.title}`, "deleted")
       }
     )
 
     this.tasksService.taskEdited.subscribe(
-      (response: {index: number, task: {id: number, title: string, completed: boolean}}) => {
+      (response: {index: number, task: Task}) => {
         this.tasks.splice(response.index, 1, response.task);
       }
     )

@@ -7,14 +7,24 @@ md-icon {
     cursor: pointer;
 }
 
-
-/deep/ md-card .md-grid-tile-buttons .mat-figure {
+md-card > div.task-info {
     display: flex;
-    justify-content: flex-end !important;
+    justify-content: flex-start;
+}
+
+md-card > div.task-info >  span {
+    width: 50%;
+}
+
+md-card .task-title {
+    display: flex;
+    max-width: 65%;
+    display: flex;
+    justify-content: flex-start!important;
 }
 
 
-/deep/ md-card .md-grid-tile-task .mat-figure {
+md-card .tools-icons {
     display: flex;
-    justify-content: flex-start !important;
+    justify-content: flex-end !important;
 }
