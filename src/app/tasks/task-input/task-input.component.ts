@@ -24,7 +24,7 @@ export class TaskInputComponent implements OnInit {
   onAddTask(form: NgForm){
     let task  = this.task;
     task.title = form.value.title;
-    this.tasksService.tasksAdded.next(task);
+    this.tasksService.createTask(task);
     form.reset();
 
 

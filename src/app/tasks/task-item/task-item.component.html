@@ -1,7 +1,7 @@
 <md-card>
   <md-grid-list cols="2" rowHeight="30px">
     <md-grid-tile class="md-grid-tile-task">
-      <md-checkbox (click)="onChecked($event)">{{ task.title }}</md-checkbox>
+      <md-checkbox #checkbox (click)="onChecked(checkbox)" [checked]="(!!task.completed)">{{ task.title }}</md-checkbox>
     </md-grid-tile>
     <md-grid-tile class="md-grid-tile-buttons">
       <md-icon (click)="onShowEdit()">edit</md-icon>

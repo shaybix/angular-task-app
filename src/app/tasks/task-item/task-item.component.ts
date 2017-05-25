@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { Task } from '../task.model';
 import { TasksService } from '../tasks.service';
@@ -9,7 +9,7 @@ import { TasksService } from '../tasks.service';
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.css']
 })
-export class TaskItemComponent implements OnInit {
+export class TaskItemComponent implements OnInit, OnChanges {
  @Input() task: Task;
  @Input() index: number;
  hideEdit: boolean = true;
@@ -19,11 +19,19 @@ export class TaskItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onChecked(event) {
+  ngOnChanges() {
+    console.log(this.task.completed)
+  }
+
+  onChecked(element: HTMLInputElement) {
     let task = this.task;
     task.completed = this.task.completed ?  false : true;
 
-    this.tasksService.taskCompleted.next({"index": this.index, "task": task});
+    this.tasksService.completeTask(task).subscribe(
+      (task: Task) => {
+        this.tasksService.taskCompleted.next({"index": this.index, "task": task})
+      }
+    );
   }
 
   onShowEdit() {
@@ -31,7 +39,7 @@ export class TaskItemComponent implements OnInit {
   }
 
   onTaskEdited(editedTask: Task) {
-    this.tasksService.tasksEdited.next({"index": this.index, "task": editedTask})
+    this.tasksService.saveTask(this.index, this.task);
     this.hideEdit = true;
   }
 
@@ -40,7 +48,7 @@ export class TaskItemComponent implements OnInit {
   }
 
   onDeleteTask() {
-    this.tasksService.taskDeleted.next(this.index);
+    this.tasksService.deleteTask(this.index, this.task)
   }
 
 }

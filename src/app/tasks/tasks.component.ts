@@ -28,40 +28,40 @@ export class TasksComponent implements OnInit, OnDestroy {
 
     )
 
-
-    this.tasksService.tasksAdded.subscribe(
+    this.tasksService.taskAdded.subscribe(
       (task: {id: number, title: string, completed: boolean}) => {
        this.tasks.push(task); 
       }
     )
 
     this.tasksService.taskCompleted.subscribe(
-      (response: {index: number, task: {id: number, title: string, completed: boolean}}) => {
-        return this.tasks.splice(response.index, 1, response.task)
-
-      }
+      (response: {index: number, task: Task}) => {
+        console.log('triggered taskCompleted subscription!')
+        this.tasks.splice(response.index, 1, response.task)
+      },
+      (error) => {console.log(error)},
+      () => {console.log('completed!')}
     )
 
     this.tasksService.taskDeleted.subscribe(
       (index: number) => {
-        return this.tasks.splice(index, 1);
+        this.tasks.splice(index, 1);
       }
     )
 
-    this.tasksService.tasksEdited.subscribe(
+    this.tasksService.taskEdited.subscribe(
       (response: {index: number, task: {id: number, title: string, completed: boolean}}) => {
-        return this.tasks.splice(response.index, 1, response.task);
+        this.tasks.splice(response.index, 1, response.task);
       }
     )
 
   }
 
   ngOnDestroy() {
-    this.tasksService.tasksAdded.unsubscribe();
+    this.tasksService.taskAdded.unsubscribe();
     this.tasksService.taskCompleted.unsubscribe();
     this.tasksService.taskDeleted.unsubscribe();
-    this.tasksService.tasksEdited.unsubscribe();
-
+    this.tasksService.taskEdited.unsubscribe();
   }
 
 }
