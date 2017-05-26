@@ -30,7 +30,7 @@ export class TasksService {
         )
         .subscribe(
             (response) => {this.taskAdded.next(response)},
-            (error) => {console.log(error)},
+            (error) => {},
             () => {}
         )
     }
@@ -42,7 +42,7 @@ export class TasksService {
         )
         .subscribe(
             (response) => {this.taskDeleted.next(index)},
-            (error) => {console.log(error)},
+            (error) => {},
             () => {}
         )
     }
@@ -53,7 +53,7 @@ export class TasksService {
             (response: Response) => <Task> response.json()
         ).subscribe(
             (response) => {this.taskEdited.next({"index": index, "task": response})},
-            (error) => {console.log(error)},
+            (error) => {},
             () => {}
         )
     }

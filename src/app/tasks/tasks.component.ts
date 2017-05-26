@@ -29,12 +29,10 @@ export class TasksComponent implements OnInit, OnDestroy {
 
     this.tasksService.taskCompleted.subscribe(
       (response: {index: number, task: Task}) => {
-        this.tasks.splice(response.index, 1, response.task)
-      },
-      (error) => {console.log(error)},
-      () => {
-        console.log('completed!')
-      })
+        this.tasks.splice(response.index, 1, response.task)},
+      (error) => {},
+      () => {}
+      )
 
     this.tasksService.taskDeleted.subscribe(
       (index: number) => {

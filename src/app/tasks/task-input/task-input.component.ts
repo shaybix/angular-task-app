@@ -29,8 +29,6 @@ export class TaskInputComponent implements OnInit {
     task.title = form.value.title;
     task.due = form.value.date;
     
-    console.log(form.value.date)
-
     this.tasksService.createTask(task);
     form.reset();
 
